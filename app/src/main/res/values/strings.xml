@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">InitiativeTracker</string>
+  <string name="title_activity_add_character">AddCharacter</string>
+  <string name="title_activity_add_initiatives">AddInitiatives</string>
+</resources>

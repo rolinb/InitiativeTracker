@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".MainActivity"
+  tools:layout_editor_absoluteY="81dp">
+
+  <Button
+    android:id="@+id/AddCharacter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="139dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginRight="15dp"
+    android:onClick="goToAddCharacter"
+    android:text="Add Character"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/CharListView"
+    />
+  <TextView
+    android:id="@+id/CharListView"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="33dp"
+    android:layout_marginBottom="41dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:scrollbars="vertical"
+    android:text=""
+    app:layout_constraintBottom_toTopOf="@+id/EnemyCounter"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    />
+  <EditText
+    android:id="@+id/EnemyCounter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="63dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginRight="12dp"
+    android:ems="10"
+    android:hint="Enemy Counter"
+    android:inputType="number"
+    app:layout_constraintBottom_toTopOf="@+id/AddEnemies"
+    app:layout_constraintEnd_toStartOf="@+id/AddCharacter"
+    app:layout_constraintTop_toBottomOf="@+id/CharListView"
+    />
+  <Button
+    android:id="@+id/AddEnemies"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="91dp"
+    android:layout_marginStart="48dp"
+    android:layout_marginLeft="48dp"
+    android:onClick="addEnemies"
+    android:text="Add Enemies"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/EnemyCounter"
+    />
+
+
+</android.support.constraint.ConstraintLayout>
