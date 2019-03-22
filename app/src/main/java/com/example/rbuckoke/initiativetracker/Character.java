@@ -1,14 +1,20 @@
 package com.example.rbuckoke.initiativetracker;
 
 
+import java.util.HashMap;
+
 public class Character {
   String name;
   int reaction;
   int roll = 0;
-
+  boolean[] modifiers;
   public Character(String name, int reaction){
     this.name = name;
     this.reaction = reaction;
+    modifiers = new boolean[9];
+    for(int i=0; i<modifiers.length; i++){
+      modifiers[i] = false;
+    }
   }
 
   @Override
@@ -20,8 +26,39 @@ public class Character {
     roll = rolled ;
   }
 
-  public void addReaction(){
-    roll -=reaction;
+  public int addReaction(){
+    return roll - reaction;
+  }
+
+  public int getTotal(){
+    return roll - reaction + this.allModifiers();
+  }
+
+  /*
+  Hasted, Slowed, On Higher Ground, Set to receive a charge, wading or slippery footing,
+  wading in deep water, foreign environment, hindered, waiting
+   */
+  public int allModifiers(){
+    int total =0;
+    if(modifiers[0]) //hasted
+      total+=-2;
+    if(modifiers[1]) //slowed
+      total+=2;
+    if(modifiers[2]) //higher ground
+      total+=-1;
+    if(modifiers[3]) //charge
+      total+=-2;
+    if(modifiers[4]) //wading slippery
+      total+=2;
+    if(modifiers[5]) //wading deep
+      total+=4;
+    if(modifiers[6]) //foreign
+      total+=6;
+    if(modifiers[7]) //hindered
+      total+=3;
+    if(modifiers[8]) //waiting
+      total+=1;
+    return total;
   }
 
   public int getRoll(){

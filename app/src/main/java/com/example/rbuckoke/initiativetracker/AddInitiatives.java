@@ -1,5 +1,6 @@
 package com.example.rbuckoke.initiativetracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -33,7 +34,8 @@ PopupMenu popup;
 
     for(final Character c: list.charList){
       TableRow row = new TableRow(this);
-      final Button button = new Button(this);
+
+    /*  final Button button = new Button(this);
       button.setText("Add modifier");
       button.setOnClickListener(new View.OnClickListener(){
 
@@ -92,7 +94,7 @@ PopupMenu popup;
           popup.show();
 
         }
-      });
+      });*/
       TextView playerName = new TextView(this);
       playerName.setText(c.getName());
       final EditText enterInitiative = new EditText(this);
@@ -114,7 +116,7 @@ PopupMenu popup;
         public void afterTextChanged(Editable s) {
         }
       });
-      row.addView(button);
+     // row.addView(button);
       row.addView(playerName);
       row.addView(enterInitiative);
       tl.addView(row);
@@ -140,9 +142,13 @@ PopupMenu popup;
 
   //adds modifier to all pcs
   public void saveInits(View v) {
+
+    Intent intent = new Intent(this, Combat.class);
+    startActivity(intent);
+
     TableLayout tl = findViewById(R.id.PlayerTable);
     Characters list = Characters.getInstance();
-
+/*
     for(int i = 0, j = tl.getChildCount(); i < j; i++) {
       View view = tl.getChildAt(i);
       if (view instanceof TableRow) {
@@ -153,10 +159,10 @@ PopupMenu popup;
           Character c = list.getCharacter(tv.getText().toString());
           if (c != null)
             c.addReaction();
-            et.setText("" + c.getRoll());
         }
       }
     }
+    updateTable(v);*/
   }
 
   public void updateTable(View v) {
@@ -176,6 +182,8 @@ PopupMenu popup;
         }
       }
     }
+
+
   }
 
 }
