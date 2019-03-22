@@ -32,7 +32,7 @@ public class AddInitiatives extends AppCompatActivity {
       TableRow row = new TableRow(this);
       TextView playerName = new TextView(this);
       playerName.setText(c.getName());
-      EditText enterInitiative = new EditText(this);
+      final EditText enterInitiative = new EditText(this);
       if(c.getRoll() != 0){
         enterInitiative.setText(c.getRoll());
       }
@@ -49,22 +49,45 @@ public class AddInitiatives extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-
         }
       });
       row.addView(playerName);
+      row.addView(enterInitiative);
+      tl.addView(row);
+    }
+    if(MainActivity.enemy != null) {
+      for (int i = 0; i < MainActivity.enemy.length; i++) {
+        TableRow tr = new TableRow(this);
+        TextView enemyNumber = new TextView(this);
+        EditText enemyInit = new EditText(this);
+        enemyNumber.setText("Enemy " + (i + 1) + ": ");
+        enemyInit.setText(" " + MainActivity.enemy[i]);
+        tr.addView(enemyNumber);
+        tr.addView(enemyInit);
+        tl.addView(tr);
+      }
     }
   }
 
-  public void saveInits(View v){
+
+  //adds modifier to all pcs
+  public void saveInits(View v) {
     TableLayout tl = findViewById(R.id.PlayerTable);
     Characters list = Characters.getInstance();
 
-    for(Character c: list.charList){
-      EditText enterInitiative = new EditText(this);
-      if(c.getRoll() != 0){
-        enterInitiative.setText(c.getRoll());
+    for(int i = 0, j = tl.getChildCount(); i < j; i++) {
+      View view = tl.getChildAt(i);
+      if (view instanceof TableRow) {
+        TableRow row = (TableRow) view;
+        TextView tv = (TextView) row.getChildAt(0);
+        EditText et = (EditText) row.getChildAt(1);
+        if(tv != null && et != null && !tv.getText().toString().contains("Enemy")) {
+          Character c = list.getCharacter(tv.getText().toString());
+          if (c != null)
+            et.setText("" + c.getRoll());
+        }
       }
+    }
   }
 
 }

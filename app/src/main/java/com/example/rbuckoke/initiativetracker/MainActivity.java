@@ -9,7 +9,7 @@ import java.util.Random;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-  int[] enemy;
+  static int[] enemy;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

@@ -17,6 +17,15 @@ public class Characters {
 
   public static Characters getInstance() {return holder;}
 
+  public Character getCharacter(String s){
+    for (Character c: charList){
+      if(c.getName().equals(s)){
+        return c;
+      }
+    }
+    return null;
+  }
+
 
 
 
