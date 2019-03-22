@@ -42,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
   public void addEnemies(View v){
     TextView tv = findViewById(R.id.EnemyCounter);
     int enemyCount = Integer.parseInt(tv.getText().toString());
-    enemy = new int[enemyCount];
+    Characters list = Characters.getInstance();
     Random ran = new Random();
     for(int i =0; i<enemyCount; i++){
-      enemy[i] = ran.nextInt(10) + 1;
+      Character c = new Character("Enemy " + (i+1) + ": ", 0);
+      c.setRoll(ran.nextInt(10)+1);
+      list.addCharacter(c);
     }
     populateCharacterList();
   }

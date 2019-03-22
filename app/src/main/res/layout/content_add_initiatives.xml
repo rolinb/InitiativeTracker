@@ -47,7 +47,7 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:onClick="saveInits"
-    android:text="Save Inits"
+    android:text="Add Modifiers"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"

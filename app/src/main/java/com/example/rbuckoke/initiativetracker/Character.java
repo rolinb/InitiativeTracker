@@ -17,7 +17,11 @@ public class Character {
   }
 
   public void setRoll(int rolled){
-    roll = reaction + rolled;
+    roll = rolled ;
+  }
+
+  public void addReaction(){
+    roll -=reaction;
   }
 
   public int getRoll(){
@@ -26,5 +30,9 @@ public class Character {
 
   public String getName(){
     return name;
+  }
+
+  public void modifyRoll(int mod){
+    roll += mod;
   }
 }
