@@ -41,15 +41,20 @@ public class MainActivity extends AppCompatActivity {
 
   public void addEnemies(View v){
     TextView tv = findViewById(R.id.EnemyCounter);
-    int enemyCount = Integer.parseInt(tv.getText().toString());
-    Characters list = Characters.getInstance();
-    Random ran = new Random();
-    for(int i =0; i<enemyCount; i++){
-      Character c = new Character("Enemy " + (i+1) + ": ", 0);
-      c.setRoll(ran.nextInt(10)+1);
-      list.addCharacter(c);
+    try {
+      int enemyCount = Integer.parseInt(tv.getText().toString());
+      Characters list = Characters.getInstance();
+      Random ran = new Random();
+      for(int i =0; i<enemyCount; i++){
+        Character c = new Character("Enemy " + (i+1) + ": ", 0);
+        c.setRoll(ran.nextInt(10)+1);
+        list.addCharacter(c);
+      }
+      populateCharacterList();
     }
-    populateCharacterList();
+    catch (NumberFormatException nfe) {
+      tv.setError("Please Enter a Number");
+    }
   }
 
   public void goToAddInitiatives(View v){
