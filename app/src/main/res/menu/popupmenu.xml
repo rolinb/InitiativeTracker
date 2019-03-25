@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="all">
+    <item android:id="@+id/hastedOption"
+        android:title="Hasted" />
+    <item android:id="@+id/slowedOption"
+        android:title="Slowed"
+        />
+        <item android:id="@+id/higherground"
+            android:title="On Higher Ground" />
+        <item android:id="@+id/charged"
+            android:title="Set to Receive Charge"
+            />
+        <item android:id="@+id/wadingslippery"
+            android:title="Wading or slippery footing" />
+        <item android:id="@+id/wadingDeep"
+            android:title="Wading in Deep Water"
+            />
+        <item android:id="@+id/foreignEnviron"
+            android:title="Foreign Environment" />
+        <item android:id="@+id/hindered"
+            android:title="Hindered"
+            />
+        <item android:id="@+id/waiting"
+            android:title="Waiting"
+            />
+
+    </group>
+</menu>

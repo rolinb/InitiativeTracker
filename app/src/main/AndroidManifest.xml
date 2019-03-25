@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.rbuckoke.initiativetracker">
+    package="com.example.rbuckoke.initiativetracker">
 
-  <application
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:label="@string/app_name"
-    android:roundIcon="@mipmap/ic_launcher_round"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
-    <activity android:name=".MainActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-    <activity
-      android:label="@string/title_activity_add_character"
-      android:name=".AddCharacter"
-      android:theme="@style/AppTheme.NoActionBar">
-    </activity>
-    <activity
-      android:label="@string/title_activity_add_initiatives"
-      android:name=".AddInitiatives"
-      android:theme="@style/AppTheme.NoActionBar">
-    </activity>
-  </application>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddCharacter"
+            android:label="@string/title_activity_add_character"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddInitiatives"
+            android:label="@string/title_activity_add_initiatives"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Combat"
+            android:label="@string/title_activity_combat"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/popup_menu" />
+    </application>
 
 </manifest>
