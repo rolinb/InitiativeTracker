@@ -8,6 +8,8 @@ public class Character implements Comparable<Character> {
   int reaction;
   int roll = 0;
   boolean[] modifiers;
+  boolean gone;
+
   public Character(String name, int reaction){
     this.name = name;
     this.reaction = reaction;
@@ -15,6 +17,7 @@ public class Character implements Comparable<Character> {
     for(int i=0; i<modifiers.length; i++){
       modifiers[i] = false;
     }
+    gone = false;
   }
 
   @Override
@@ -75,7 +78,9 @@ public class Character implements Comparable<Character> {
 
   @Override
   public int compareTo(Character o) {
-    if(this.getTotal() > o.getTotal()) return 1;
+    if(this.gone == true && o.gone==false ) return 1;
+    if(this.gone == false && o.gone == true) return -1;
+    if((this.gone == o.gone ) && this.getTotal() > o.getTotal()) return 1;
     else return -1;
     }
 }

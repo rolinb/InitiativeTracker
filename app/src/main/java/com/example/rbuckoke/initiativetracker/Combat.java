@@ -17,9 +17,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Collections;
 
 public class Combat extends AppCompatActivity {
+int turnsTaken;
+int totalTurns;
+int rounds = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +41,12 @@ public class Combat extends AppCompatActivity {
         tl.removeAllViews();
         Characters list = Characters.getInstance();
         Collections.sort(list.charList);
-
+        totalTurns = list.charList.size();
+            TableRow roundsRow = new TableRow(this);
+            TextView tv = new TextView(this);
+            tv.setText("Round: " + rounds);
+            roundsRow.addView(tv);
+            tl.addView(roundsRow);
         for (final Character c : list.charList) {
             TableRow row = new TableRow(this);
             final Button popupMenu = new Button(this);
@@ -154,26 +164,34 @@ public class Combat extends AppCompatActivity {
     }
 
 
-    public void updateTable(View v) {
+    public void endTurn(View v) {
         TableLayout tl = findViewById(R.id.CombatTable);
         Characters list = Characters.getInstance();
 
-        for(int i = 0, j = tl.getChildCount(); i < j; i++) {
-            View view = tl.getChildAt(i);
+            View view = tl.getChildAt(1);
             if (view instanceof TableRow) {
                 TableRow row = (TableRow) view;
                 TextView tv = (TextView) row.getChildAt(1);
                 TextView et = (TextView) row.getChildAt(2);
                 if(tv != null && et != null) {
                     Character c = list.getCharacter(tv.getText().toString());
-                    if (c != null)
-                        et.setText("" + c.getTotal());
+                    if (c != null) {
+                        c.gone = true;
+                        turnsTaken++;
+                        createView();
+                        if (totalTurns  == turnsTaken){
+                            turnsTaken = 0;
+                            rounds++;
+                            for(Character c2 : list.charList)
+                                c2.gone = false;
+                        }
+                    }
                 }
             }
         }
 
 
-    }
+
 
 
 }
