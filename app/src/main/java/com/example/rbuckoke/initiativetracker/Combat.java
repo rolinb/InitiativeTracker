@@ -140,7 +140,7 @@ int rounds = 0;
                                     }
                                     break;
                             }
-                            createView();
+                            // createView();
                             return true;
                         }
                     });
