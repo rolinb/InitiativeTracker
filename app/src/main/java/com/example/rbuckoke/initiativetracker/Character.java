@@ -3,7 +3,7 @@ package com.example.rbuckoke.initiativetracker;
 
 import java.util.HashMap;
 
-public class Character {
+public class Character implements Comparable<Character> {
   String name;
   int reaction;
   int roll = 0;
@@ -72,4 +72,10 @@ public class Character {
   public void modifyRoll(int mod){
     roll += mod;
   }
+
+  @Override
+  public int compareTo(Character o) {
+    if(this.getTotal() > o.getTotal()) return 1;
+    else return -1;
+    }
 }

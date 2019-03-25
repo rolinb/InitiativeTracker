@@ -17,6 +17,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.Collections;
+
 public class Combat extends AppCompatActivity {
 
     @Override
@@ -31,7 +33,9 @@ public class Combat extends AppCompatActivity {
 
     public void createView() {
         TableLayout tl = findViewById(R.id.CombatTable);
+        tl.removeAllViews();
         Characters list = Characters.getInstance();
+        Collections.sort(list.charList);
 
         for (final Character c : list.charList) {
             TableRow row = new TableRow(this);
@@ -126,7 +130,7 @@ public class Combat extends AppCompatActivity {
                                     }
                                     break;
                             }
-                            updateTable(v);
+                            createView();
                             return true;
                         }
                     });
