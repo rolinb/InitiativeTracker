@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,12 +96,32 @@ PopupMenu popup;
 
         }
       });*/
-      TextView playerName = new TextView(this);
+      EditText playerName = new EditText(this);
+      playerName.setInputType(InputType.TYPE_CLASS_TEXT);
       playerName.setText(c.getName());
       final EditText enterInitiative = new EditText(this);
+      enterInitiative.setInputType(InputType.TYPE_CLASS_NUMBER);
+      TextView playerReaction = new TextView(this);
+      playerReaction.setText(" - " + c.reaction);
       if(c.getRoll() != 0){
         enterInitiative.setText(""+c.getRoll());
       }
+      playerName.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+          c.name = s.toString();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+      });
       enterInitiative.addTextChangedListener(new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -119,6 +140,7 @@ PopupMenu popup;
      // row.addView(button);
       row.addView(playerName);
       row.addView(enterInitiative);
+      row.addView(playerReaction);
       tl.addView(row);
     }
 

@@ -28,7 +28,7 @@ public class AddCharacter extends AppCompatActivity {
       EditText tmpTV = findViewById(R.id.Reaction);
 
       int reaction = Integer.parseInt(tmpTV.getText().toString());
-      Character tmp = new Character(name, reaction);
+      Character tmp = new Character(name, reaction, false);
 
       Characters list = Characters.getInstance();
       list.addCharacter(tmp);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import java.util.Random;
+import java.util.Iterator;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     populateCharacterList();
-
-
   }
 
   public void goToAddCharacter(View v) {
@@ -39,15 +38,25 @@ public class MainActivity extends AppCompatActivity {
     }
   }
 
+  public void clearEnemies(View v) {
+    Characters list = Characters.getInstance();
+    for(Iterator<Character> c = list.charList.iterator(); c.hasNext();){
+      if(c.next().enemy) {
+        c.remove();
+      }
+    }
+    populateCharacterList();
+  }
+
   public void addEnemies(View v){
     TextView tv = findViewById(R.id.EnemyCounter);
     try {
       int enemyCount = Integer.parseInt(tv.getText().toString());
       Characters list = Characters.getInstance();
       Random ran = new Random();
-      for(int i =0; i<enemyCount; i++){
-        Character c = new Character("Enemy " + (i+1) + ": ", 0);
-        c.setRoll(ran.nextInt(10)+1);
+      for(int i = 0; i< enemyCount; i++) {
+        Character c = new Character("Enemy " + (i + 1) + ": ", 0, true);
+        c.setRoll(ran.nextInt(10) + 1);
         list.addCharacter(c);
       }
       populateCharacterList();
