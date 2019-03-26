@@ -102,7 +102,14 @@ PopupMenu popup;
       final EditText enterInitiative = new EditText(this);
       enterInitiative.setInputType(InputType.TYPE_CLASS_NUMBER);
       TextView playerReaction = new TextView(this);
-      playerReaction.setText(" - " + c.reaction);
+
+      if(c.reaction >= 0) {
+        playerReaction.setText(" - " + c.reaction);
+      }
+      else {
+        playerReaction.setText(" + " + Math.abs(c.reaction));
+      }
+
       if(c.getRoll() != 0){
         enterInitiative.setText(""+c.getRoll());
       }

@@ -24,7 +24,7 @@ import java.util.Collections;
 public class Combat extends AppCompatActivity {
 int turnsTaken;
 int totalTurns;
-int rounds = 0;
+int rounds = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
