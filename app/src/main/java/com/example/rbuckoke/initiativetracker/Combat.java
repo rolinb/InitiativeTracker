@@ -50,6 +50,7 @@ int rounds = 1;
         for (final Character c : list.charList) {
             TableRow row = new TableRow(this);
             final Button popupMenu = new Button(this);
+            popupMenu.setText("Modifiers");
             popupMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
@@ -156,6 +157,7 @@ int rounds = 1;
             playerName.setText(c.getName());
             final TextView enterInitiative = new TextView(this);
             enterInitiative.setText("" + c.getTotal());
+            enterInitiative.setTextSize(24);
             row.addView(popupMenu);
             row.addView(playerName);
             row.addView(enterInitiative);

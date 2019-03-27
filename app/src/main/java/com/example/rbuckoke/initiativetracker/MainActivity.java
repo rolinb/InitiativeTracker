@@ -29,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
     Characters list = Characters.getInstance();
     tv.setText("");
     for(Character c : list.charList){
-      tv.append(c.toString() + "\n");
+      tv.append(c.name + ": " + c.reaction + "\n");
     }
-    if(enemy != null) {
+    /*if(enemy != null) {
       for (int i = 0; i < enemy.length; i++) {
         tv.append("Enemy " + (i + 1) + " Init = " + enemy[i] + "\n");
       }
-    }
+    }*/
   }
 
   public void clearEnemies(View v) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
       Characters list = Characters.getInstance();
       Random ran = new Random();
       for(int i = 0; i< enemyCount; i++) {
-        Character c = new Character("Enemy " + (i + 1) + ": ", 0, true);
+        Character c = new Character("Enemy " + (i + 1), 0, true);
         c.setRoll(ran.nextInt(10) + 1);
         list.addCharacter(c);
       }
