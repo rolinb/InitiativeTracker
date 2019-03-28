@@ -16,12 +16,20 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    clearEnemies(new View(this));
+    Bundle b = getIntent().getExtras();
+    if(b != null && b.getInt("clearEnemies") == 1) {
+      clearEnemies(new View(this));
+    }
     populateCharacterList();
   }
 
   public void goToAddCharacter(View v) {
     Intent intent = new Intent(this, AddCharacter.class);
+    startActivity(intent);
+  }
+
+  public void goToAddEnemies(View v) {
+    Intent intent = new Intent(this, AddEnemies.class);
     startActivity(intent);
   }
 
@@ -47,24 +55,6 @@ public class MainActivity extends AppCompatActivity {
       }
     }
     populateCharacterList();
-  }
-
-  public void addEnemies(View v){
-    TextView tv = findViewById(R.id.EnemyCounter);
-    try {
-      int enemyCount = Integer.parseInt(tv.getText().toString());
-      Characters list = Characters.getInstance();
-      Random ran = new Random();
-      for(int i = 0; i< enemyCount; i++) {
-        Character c = new Character("Enemy " + (i + 1), 0, true);
-        c.setRoll(ran.nextInt(10) + 1);
-        list.addCharacter(c);
-      }
-      populateCharacterList();
-    }
-    catch (NumberFormatException nfe) {
-      tv.setError("Please Enter a Number");
-    }
   }
 
   public void goToAddInitiatives(View v){

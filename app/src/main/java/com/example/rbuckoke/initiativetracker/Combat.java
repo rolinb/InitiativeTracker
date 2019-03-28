@@ -202,6 +202,10 @@ int rounds = 1;
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         Intent intent = new Intent(Combat.this, MainActivity.class);
+                        Bundle b = new Bundle();
+                        b.putInt("clearEnemies", 1);
+                        intent.putExtras(b);
+
                         startActivity(intent);
                         break;
 
