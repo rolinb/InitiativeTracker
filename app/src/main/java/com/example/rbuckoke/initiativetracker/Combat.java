@@ -1,5 +1,8 @@
 package com.example.rbuckoke.initiativetracker;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -156,7 +159,7 @@ int rounds = 1;
             TextView playerName = new TextView(this);
             playerName.setText(c.getName());
             final TextView enterInitiative = new TextView(this);
-            enterInitiative.setText("" + c.getTotal());
+            enterInitiative.setText("\t\t" + c.getTotal());
             enterInitiative.setTextSize(24);
             row.addView(popupMenu);
             row.addView(playerName);
@@ -192,7 +195,28 @@ int rounds = 1;
             }
         }
 
+    public void goToMainActivity(View v) {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        Intent intent = new Intent(Combat.this, MainActivity.class);
+                        startActivity(intent);
+                        break;
 
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to end combat?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
+
+    }
 
 
 
