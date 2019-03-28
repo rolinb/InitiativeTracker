@@ -17,8 +17,6 @@ public class AddEnemies extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_enemies);
-
-
     }
 
     public void SaveEnemyAction(View v){

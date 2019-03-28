@@ -36,7 +36,7 @@
       android:layout_marginRight="18dp"
       android:onClick="goToAddCharacter"
       android:text="Add Character"
-      app:layout_constraintBottom_toTopOf="@+id/EnemyCounter"
+      app:layout_constraintBottom_toTopOf="@+id/AddEnemies"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -53,10 +53,10 @@
       android:ems="10"
       android:onClick="clearEnemies"
       android:text="Clear Enemies"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/scrollView3"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+      app:layout_constraintTop_toBottomOf="@+id/AddEnemies" />
 
   <ScrollView
       android:id="@+id/scrollView3"
@@ -67,10 +67,10 @@
       android:layout_marginEnd="18dp"
       android:layout_marginRight="18dp"
       android:layout_marginBottom="4dp"
-      app:layout_constraintBottom_toTopOf="@+id/clearEnemies"
+      app:layout_constraintBottom_toTopOf="@+id/addInitiatives"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/addInitiatives">
+      app:layout_constraintTop_toBottomOf="@+id/clearEnemies">
 
     <TextView
         android:id="@+id/CharListView"
@@ -81,7 +81,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addInitiatives" />
+        app:layout_constraintTop_toBottomOf="@+id/clearEnemies" />
   </ScrollView>
 
   <Button
@@ -94,7 +94,7 @@
       android:layout_marginRight="18dp"
       android:onClick="goToAddEnemies"
       android:text="Add Enemies"
-      app:layout_constraintBottom_toTopOf="@+id/addInitiatives"
+      app:layout_constraintBottom_toTopOf="@+id/clearEnemies"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/AddCharacter" />
@@ -109,10 +109,10 @@
       android:layout_marginRight="18dp"
       android:onClick="goToAddInitiatives"
       android:text="Enter Combat"
-      app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/AddEnemies" />
+      app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
 
 </android.support.constraint.ConstraintLayout>
