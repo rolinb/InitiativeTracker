@@ -7,76 +7,112 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
-  <Button
-      android:id="@+id/AddCharacter"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="15dp"
-      android:layout_marginRight="15dp"
-      android:layout_marginBottom="139dp"
-      android:onClick="goToAddCharacter"
-      android:text="Add Character"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/CharListView" />
-
   <TextView
-      android:id="@+id/CharListView"
+      android:id="@+id/title"
       android:layout_width="0dp"
-      android:layout_height="0dp"
-      android:layout_marginStart="30dp"
-      android:layout_marginLeft="30dp"
-      android:layout_marginTop="33dp"
-      android:layout_marginEnd="30dp"
-      android:layout_marginRight="30dp"
-      android:layout_marginBottom="41dp"
-      android:scrollbars="vertical"
-      android:text=""
-      app:layout_constraintBottom_toTopOf="@+id/EnemyCounter"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="12dp"
+      android:layout_marginLeft="12dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="12dp"
+      android:layout_marginRight="12dp"
+      android:layout_marginBottom="13dp"
+      android:text="Advanced Dungeons and Dragons 2nd Edition Initiative Tracker"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:fontFamily="sans-serif-black"
+      app:layout_constraintBottom_toTopOf="@+id/AddCharacter"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
-  <EditText
-      android:id="@+id/EnemyCounter"
-      android:layout_width="wrap_content"
+  <Button
+      android:id="@+id/AddCharacter"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="12dp"
-      android:layout_marginRight="12dp"
-      android:layout_marginBottom="63dp"
-      android:ems="10"
-      android:hint="Enemy Counter"
-      android:inputType="number"
+      android:layout_marginStart="18dp"
+      android:layout_marginLeft="18dp"
+      android:layout_marginEnd="18dp"
+      android:layout_marginRight="18dp"
+      android:onClick="goToAddCharacter"
+      android:text="Add Character"
       app:layout_constraintBottom_toTopOf="@+id/AddEnemies"
-      app:layout_constraintEnd_toStartOf="@+id/AddCharacter"
-      app:layout_constraintTop_toBottomOf="@+id/CharListView" />
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/title" />
+
+  <Button
+      android:id="@+id/clearEnemies"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginLeft="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginRight="16dp"
+      android:layout_marginBottom="35dp"
+      android:ems="10"
+      android:onClick="clearEnemies"
+      android:text="Clear Enemies"
+      app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/AddEnemies" />
+
+  <ScrollView
+      android:id="@+id/scrollView3"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginStart="18dp"
+      android:layout_marginLeft="18dp"
+      android:layout_marginEnd="18dp"
+      android:layout_marginRight="18dp"
+      android:layout_marginBottom="4dp"
+      app:layout_constraintBottom_toTopOf="@+id/addInitiatives"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/clearEnemies">
+
+    <TextView
+        android:id="@+id/CharListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clearEnemies" />
+  </ScrollView>
 
   <Button
       android:id="@+id/AddEnemies"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginStart="48dp"
-      android:layout_marginLeft="48dp"
-      android:layout_marginBottom="91dp"
-      android:onClick="addEnemies"
+      android:layout_marginStart="18dp"
+      android:layout_marginLeft="18dp"
+      android:layout_marginEnd="18dp"
+      android:layout_marginRight="18dp"
+      android:onClick="goToAddEnemies"
       android:text="Add Enemies"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/clearEnemies"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/EnemyCounter" />
+      app:layout_constraintTop_toBottomOf="@+id/AddCharacter" />
 
   <Button
       android:id="@+id/addInitiatives"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginTop="76dp"
-      android:layout_marginEnd="62dp"
-      android:layout_marginRight="62dp"
-      android:layout_marginBottom="78dp"
-      android:text="Initiatives"
+      android:layout_marginStart="18dp"
+      android:layout_marginLeft="18dp"
+      android:layout_marginEnd="18dp"
+      android:layout_marginRight="18dp"
       android:onClick="goToAddInitiatives"
+      android:text="Enter Combat"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/EnemyCounter" />
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
 
 </android.support.constraint.ConstraintLayout>

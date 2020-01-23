@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  app:layout_behavior="@string/appbar_scrolling_view_behavior"
+  tools:context=".AddEnemies"
+  tools:showIn="@layout/activity_add_enemies">
+
+  <Button
+    android:id="@+id/SaveEnemy"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="127dp"
+    android:layout_marginStart="88dp"
+    android:layout_marginLeft="88dp"
+    android:onClick="SaveEnemyAction"
+    android:text="Add Enemies"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    />
+  <EditText
+    android:id="@+id/enemyName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="57dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:hint="Enemy Name"
+    app:layout_constraintEnd_toEndOf="@+id/Number"
+    app:layout_constraintStart_toStartOf="@+id/Number"
+    app:layout_constraintTop_toTopOf="parent"
+    />
+  <EditText
+    android:id="@+id/Number"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="157dp"
+    android:layout_marginStart="45dp"
+    android:layout_marginLeft="45dp"
+    android:ems="10"
+    android:inputType="number"
+    android:hint="Number of Enemies"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    />
+</android.support.constraint.ConstraintLayout>

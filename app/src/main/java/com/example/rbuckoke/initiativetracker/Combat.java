@@ -1,5 +1,8 @@
 package com.example.rbuckoke.initiativetracker;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,7 +27,7 @@ import java.util.Collections;
 public class Combat extends AppCompatActivity {
 int turnsTaken;
 int totalTurns;
-int rounds = 0;
+int rounds = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ int rounds = 0;
         for (final Character c : list.charList) {
             TableRow row = new TableRow(this);
             final Button popupMenu = new Button(this);
+            popupMenu.setText("Modifiers");
             popupMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
@@ -155,7 +159,8 @@ int rounds = 0;
             TextView playerName = new TextView(this);
             playerName.setText(c.getName());
             final TextView enterInitiative = new TextView(this);
-            enterInitiative.setText("" + c.getTotal());
+            enterInitiative.setText("\t\t" + c.getTotal());
+            enterInitiative.setTextSize(24);
             row.addView(popupMenu);
             row.addView(playerName);
             row.addView(enterInitiative);
@@ -190,7 +195,32 @@ int rounds = 0;
             }
         }
 
+    public void goToMainActivity(View v) {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        Intent intent = new Intent(Combat.this, MainActivity.class);
+                        Bundle b = new Bundle();
+                        b.putInt("clearEnemies", 1);
+                        intent.putExtras(b);
 
+                        startActivity(intent);
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to end combat?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
+
+    }
 
 
 

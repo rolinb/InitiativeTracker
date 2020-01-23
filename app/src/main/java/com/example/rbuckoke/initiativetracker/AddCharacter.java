@@ -27,14 +27,20 @@ public class AddCharacter extends AppCompatActivity {
       String name = charNameTV.getText().toString();
       EditText tmpTV = findViewById(R.id.Reaction);
 
-      int reaction = Integer.parseInt(tmpTV.getText().toString());
-      Character tmp = new Character(name, reaction);
+      try {
+          int reaction = Integer.parseInt(tmpTV.getText().toString());
+          Character tmp = new Character(name, reaction, false);
 
-      Characters list = Characters.getInstance();
-      list.addCharacter(tmp);
+          Characters list = Characters.getInstance();
+          list.addCharacter(tmp);
 
-    Intent intent = new Intent(this, MainActivity.class);
-    startActivity(intent);
+          Intent intent = new Intent(this, MainActivity.class);
+          startActivity(intent);
+      }
+      catch (NumberFormatException nfe) {
+          tmpTV.setError("Please Enter a Valid Number");
+      }
+
   }
 
 }

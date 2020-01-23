@@ -9,10 +9,12 @@ public class Character implements Comparable<Character> {
   int roll = 0;
   boolean[] modifiers;
   boolean gone;
+  boolean enemy; // 0 for PC, 1 for enemy
 
-  public Character(String name, int reaction){
+  public Character(String name, int reaction, boolean enemy){
     this.name = name;
     this.reaction = reaction;
+    this.enemy = enemy;
     modifiers = new boolean[9];
     for(int i=0; i<modifiers.length; i++){
       modifiers[i] = false;
